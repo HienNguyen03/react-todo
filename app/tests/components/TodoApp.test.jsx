@@ -11,15 +11,30 @@ describe('TodoApp', () => {
     expect(TodoApp).toExist();
   });
 
-  describe('handleAddTodo', () => {
-    it('should add todo to todos state when handleAddTodo', () => {
-      var todoApp = TestUtils.renderIntoDocument(<TodoApp/>);
+  it('should add todo to todos state when handleAddTodo', () => {
+    var todoApp = TestUtils.renderIntoDocument(<TodoApp/>);
 
-      var todoText = 'test text';
-      todoApp.setState({todos: []});
-      todoApp.handleAddTodo(todoText);
+    var todoText = 'test text';
+    todoApp.setState({todos: []});
+    todoApp.handleAddTodo(todoText);
 
-      expect(todoApp.state.todos[0].text).toBe(todoText);
-    });
+    expect(todoApp.state.todos[0].text).toBe(todoText);
+  });
+
+  it('should toggle completed value when handleToggle called', () => {
+    var todoData = {
+      id: 11,
+      text: 'Test data',
+      completed: false
+    };
+    var todoApp = TestUtils.renderIntoDocument(<TodoApp/>);
+    todoApp.setState({todos: [todoData]});
+
+    //check fist todo has completed prop is false
+    expect(todoApp.state.todos[0].completed).toBe(false);
+    //call handleToggle with id 11
+    todoApp.handleToggle(11);
+    //verify whether value is changed
+    expect(todoApp.state.todos[0].completed).toBe(true);
   });
 });
