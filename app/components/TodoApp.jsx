@@ -2,9 +2,9 @@ var React = require('react');
 var uuid = require('node-uuid');
 var moment = require('moment');
 
+var AddTodo = require('AddTodo');
 var TodoAPI = require('TodoAPI');
 var TodoList = require('TodoList');
-var AddTodo = require('AddTodo');
 var TodoSearch = require('TodoSearch');
 
 var TodoApp = React.createClass({
@@ -35,6 +35,13 @@ var TodoApp = React.createClass({
     });
   },
 
+  handleSearch: function (showCompleted, searchText) {
+    this.setState({
+      showCompleted:showCompleted,
+      searchText: searchText.toLowerCase()
+    });
+  },
+
   handleToggle: function (id) {
     var updatedTodos = this.state.todos.map((todo) => {
       if (todo.id === id) {
@@ -46,13 +53,6 @@ var TodoApp = React.createClass({
 
     this.setState({
       todos: updatedTodos
-    });
-  },
-
-  handleSearch: function (showCompleted, searchText) {
-    this.setState({
-      showCompleted:showCompleted,
-      searchText: searchText.toLowerCase()
     });
   },
 
