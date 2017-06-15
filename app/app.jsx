@@ -12,10 +12,6 @@ store.subscribe(() => {
   console.log(store.getState());
 });
 
-store.dispatch(actions.addTodo('Take transcript'));
-store.dispatch(actions.setSearchText('transcript'));
-store.dispatch(actions.toggleShowCompleted());
-
 //Load foundation
 $(document).foundation();
 
