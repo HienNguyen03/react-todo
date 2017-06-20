@@ -9,6 +9,7 @@ var store = require('configureStore').configure();
 var TodoAPI = require('TodoAPI');
 
 store.dispatch(actions.startAddTodos());
+
 //Load foundation
 $(document).foundation();
 
