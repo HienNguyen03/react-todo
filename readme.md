@@ -1,4 +1,5 @@
-This is a timer app build on react-redux.
+This is a timer app built on react-redux.
 TDD: Karma, Mocha
 Real-time database on firebase.
-Deployed on heroku with link: http://fierce-meadow-37466.herokuapp.com/
+Autherized Oauth with Github.
+Deployed on heroku with link: http:// fierce-meadow-37466.herokuapp.com/
